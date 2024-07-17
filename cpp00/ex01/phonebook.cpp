@@ -1,7 +1,5 @@
 #include "phonebook.hpp"
 
-
-
 // add a new contact to the phonebook
 void	PhoneBook::add(void)
 {
@@ -44,15 +42,18 @@ void	PhoneBook::add(void)
 			if (contact[i].FirstName.empty())
 			{
 				contact[i] = tmp;
+				if (8 != size)
+					size++;
 				break;
 			}
 			// if phonebook is full, shift all contacts up by one
 			if (i == 7)
 			{
-				for (int j = 0; j < 7; j++)
-					contact[j] = contact[j + 1];
-				// add new contact to last slot
-				contact[7] = tmp;
+				static int j = 0;
+				contact[j++] = tmp;
+				(7 == j) ? j = 0: j;
+				if (8 != size)
+					size++;
 			}
 		}
 	}
@@ -63,8 +64,29 @@ void	PhoneBook::add(void)
 	}
 }
 
+PhoneBook::PhoneBook(void)
+{
+	size = 0;
+}
+
+std::string MyCharOffset(std::string str)
+{
+	std::string	CopyStr;
+	CopyStr = str;
+	if (10 < str.length())
+		CopyStr.replace(9, CopyStr.length(), ".");
+	return (CopyStr);
+}
+
 // search for a contact in the phonebook
 void	PhoneBook::search(void)
 {
-	
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << std::right;
+		std::cout << std::setw(10) << i << "|";
+		std::cout << std::setw(10) << MyCharOffset(contact[i].FirstName) << "|";
+		std::cout << std::setw(10) << MyCharOffset(contact[i].LastName) << "|";
+		std::cout << std::setw(10) << MyCharOffset(contact[i].NickName) << std::endl;
+	}
 }
