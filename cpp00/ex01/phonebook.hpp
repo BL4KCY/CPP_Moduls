@@ -9,6 +9,7 @@
 #pragma once
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 class Contact
@@ -25,8 +26,10 @@ class PhoneBook
 {
 private:
 	Contact	contact[8];
+	unsigned short	size;
 
 public:
+	PhoneBook(void);
 	void	add(void);
 	void	search(void);
 	void	exit(void);
