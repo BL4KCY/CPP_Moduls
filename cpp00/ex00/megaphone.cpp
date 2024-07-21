@@ -19,7 +19,7 @@ int	main(int c, char **av)
 		// Loop through all arguments and convert them to uppercase
 		for (int i = 1; i < c; i++)
 			for (int j = 0; av[i][j]; j++)
-				std::cout << std::uppercase (char)toupper(av[i][j]);
+				std::cout << (char)toupper(av[i][j]);
 		break;
 	}
 	return (0);
