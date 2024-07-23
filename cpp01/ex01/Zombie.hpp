@@ -17,9 +17,14 @@ class Zombie
 private:
 	std::string	name;
 public:
-	void announce( void );
-	Zombie(std::string name);
+	void	announce( void );
+	void	setName(std::string name);
+	Zombie(std::string name = "Unamed Zombie");
 	~Zombie();
 };
+
+// Function prototypes
+
+Zombie*	zombieHorde( int N, std::string name );
 
 // end of Zombie.hpp
