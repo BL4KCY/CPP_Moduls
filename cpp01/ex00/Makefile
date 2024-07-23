@@ -3,7 +3,7 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = BraiiiiiiinnnzzzZ
+NAME = Zombie
 
 SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
