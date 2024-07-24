@@ -15,5 +15,4 @@ public:
 	void		attack(void);
 	std::string	getName(void);
 	void		setWeapon(Weapon& weapon);
-	void		setName(std::string name);
 };
