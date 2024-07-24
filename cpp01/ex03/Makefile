@@ -3,7 +3,7 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = bin
+NAME = weapon
 
 SRCS = HumanA.cpp  HumanB.cpp  main.cpp  Weapon.cpp
 
