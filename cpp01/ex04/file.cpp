@@ -21,7 +21,10 @@ void	check_swap(std::ifstream &infile, std::ofstream &oufile, std::string s1, st
 				buff.clear();
 			}
 			else if (buff.size())
+			{
 				oufile.write(buff.c_str(), buff.size());
+				buff.clear();
+			}
 			if (c != s1.c_str()[0] && c != EOF)
 				oufile.put(c);
 		}
