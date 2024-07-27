@@ -14,5 +14,4 @@ public:
 	HumanA(std::string name, Weapon& weapon);
 	void		attack(void);
 	std::string	getName(void);
-	void		setWeapon(Weapon weapon);
 };
