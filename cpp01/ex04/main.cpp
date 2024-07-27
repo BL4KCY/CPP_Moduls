@@ -14,9 +14,9 @@ int main(int c, char **av)
 	std::ifstream	infile(fileName.c_str());
 	if (infile.fail())
 		return (std::cout << "fail to open: " << fileName << std::endl, 1);
-	std::ofstream	oufile((fileName + ".out").c_str());
+	std::ofstream	oufile((fileName + ".replace").c_str());
 	if (oufile.fail())
-		return (std::cout << "fail to open: " << fileName + ".out" << std::endl, infile.close(), 1);
+		return (std::cout << "fail to open: " << fileName + ".replace" << std::endl, infile.close(), 1);
 	check_swap(infile, oufile, s1, s2);
 
 	infile.close();
