@@ -8,9 +8,12 @@ std::string	HumanB::getName(void)
 void	HumanB::attack(void)
 {
 	std::cout << this->getName()
-	<< " attacks with their "
-	<< this->weapon->getType()
-	<< std::endl;
+	<< " attacks with their ";
+	if (this->weapon)
+		std::cout << this->weapon->getType();
+	else
+		std::cout << "no weapon";
+	std::cout << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon& weapon)
@@ -21,4 +24,5 @@ void	HumanB::setWeapon(Weapon& weapon)
 HumanB::HumanB(std::string name)
 {
 	this->name = name;
+	this->weapon = NULL;
 }
