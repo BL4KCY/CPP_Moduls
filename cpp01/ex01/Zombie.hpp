@@ -1,9 +1,3 @@
-/* Description: Zombie class header file.
- * Member functions:
- * 	announce: Announces the zombie.
- * 	newZombie: Creates a new zombie.
- * 	randomChump: Creates a random zombie and announces it.
- */
 
 #include <iostream>
 #include <string>
