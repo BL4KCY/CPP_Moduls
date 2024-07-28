@@ -12,11 +12,11 @@ int main(int c, char **av)
 	std::string		s2 = av[3];
 
 	std::ifstream	infile(fileName.c_str());
-	if (infile.fail())
-		return (std::cout << "fail to open: " << fileName << std::endl, 1);
+	if (!infile)
+		return (std::cout << "opening of <" << fileName << "> failed!!" << std::endl, 1);
 	std::ofstream	oufile((fileName + ".replace").c_str());
-	if (oufile.fail())
-		return (std::cout << "fail to open: " << fileName + ".replace" << std::endl, infile.close(), 1);
+	if (!oufile)
+		return (std::cout << "opening of <" << fileName + ".replace" << "> failed!!" << std::endl, infile.close(), 1);
 	check_swap(infile, oufile, s1, s2);
 
 	infile.close();
