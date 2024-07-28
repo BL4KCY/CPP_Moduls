@@ -4,8 +4,6 @@
 
 #pragma once
 
-// class definition
-
 class Zombie
 {
 private:
@@ -16,9 +14,5 @@ public:
 	~Zombie();
 };
 
-// Function prototypes
-
 Zombie*	newZombie( std::string name );
 void	randomChump( std::string name );
-
-// end of Zombie.hpp
