@@ -21,4 +21,4 @@ void	Zombie::setName(std::string name)
 {
 	this->name = name;
 }
-// end of Zombie.cpp
+

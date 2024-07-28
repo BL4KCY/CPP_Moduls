@@ -21,4 +21,3 @@ public:
 
 Zombie*	zombieHorde( int N, std::string name );
 
-// end of Zombie.hpp
