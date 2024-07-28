@@ -13,10 +13,10 @@ int main(int c, char **av)
 
 	std::ifstream	infile(fileName.c_str());
 	if (!infile)
-		return (std::cout << "opening of <" << fileName << "> failed!!" << std::endl, 1);
+		return (std::cout << fileName << ": " << strerror(errno) << std::endl, 1);
 	std::ofstream	oufile((fileName + ".replace").c_str());
 	if (!oufile)
-		return (std::cout << "opening of <" << fileName + ".replace" << "> failed!!" << std::endl, infile.close(), 1);
+		return (std::cout << fileName + ".replace: " << strerror(errno) << std::endl, 1);
 	check_swap(infile, oufile, s1, s2);
 
 	infile.close();
