@@ -47,7 +47,7 @@ float	Fixed::toFloat( void ) const
 
 int		Fixed::toInt( void ) const
 {
-	return (fixedPoint >> fractionalBits);
+	return (roundf(fixedPoint >> fractionalBits));
 }
 
 std::ostream&	operator<<(std::ostream& cout, const Fixed& fixedObject)
@@ -58,54 +58,54 @@ std::ostream&	operator<<(std::ostream& cout, const Fixed& fixedObject)
 // Ex-02
 
 // Comparison operators:
-bool			Fixed::operator>( const Fixed &tocmp )
+bool			Fixed::operator>( const Fixed &toCmp )
 {
-	return (this->fixedPoint > tocmp.fixedPoint);
+	return (this->fixedPoint > toCmp.fixedPoint);
 }
-bool			Fixed::operator>=( const Fixed &tocmp )
+bool			Fixed::operator>=( const Fixed &toCmp )
 {
-	return (this->fixedPoint >= tocmp.fixedPoint);
+	return (this->fixedPoint >= toCmp.fixedPoint);
 }
-bool			Fixed::operator<( const Fixed &tocmp )
+bool			Fixed::operator<( const Fixed &toCmp )
 {
-	return (this->fixedPoint < tocmp.fixedPoint);
+	return (this->fixedPoint < toCmp.fixedPoint);
 }
-bool			Fixed::operator<=( const Fixed &tocmp )
+bool			Fixed::operator<=( const Fixed &toCmp )
 {
-	return (this->fixedPoint <= tocmp.fixedPoint);
+	return (this->fixedPoint <= toCmp.fixedPoint);
 }
-bool			Fixed::operator==( const Fixed &tocmp )
+bool			Fixed::operator==( const Fixed &toCmp )
 {
-	return (this->fixedPoint == tocmp.fixedPoint);
+	return (this->fixedPoint == toCmp.fixedPoint);
 }
-bool			Fixed::operator!=( const Fixed &tocmp )
+bool			Fixed::operator!=( const Fixed &toCmp )
 {
-	return (this->fixedPoint != tocmp.fixedPoint);
+	return (this->fixedPoint != toCmp.fixedPoint);
 }
 
 // Arithmetic operators:
 
-Fixed&			Fixed::operator+( const Fixed &toadd )
+Fixed&			Fixed::operator+( const Fixed &toAdd )
 {
-	this->fixedPoint += toadd.fixedPoint;
+	this->fixedPoint += toAdd.fixedPoint;
 	return (*this);
 }
 
-Fixed&			Fixed::operator-( const Fixed &tosub )
+Fixed&			Fixed::operator-( const Fixed &toSub )
 {
-	this->fixedPoint -= tosub.fixedPoint;
+	this->fixedPoint -= toSub.fixedPoint;
 	return (*this);
 }
 
-Fixed&			Fixed::operator*( const Fixed &tomul )
+Fixed&			Fixed::operator*( const Fixed &toMul )
 {
-	this->fixedPoint *= tomul.fixedPoint;
+	this->fixedPoint = Fixed(this->toFloat() * toMul.toFloat()).fixedPoint;
 	return (*this);
 }
 
-Fixed&			Fixed::operator/( const Fixed &todiv )
+Fixed&			Fixed::operator/( const Fixed &divby )
 {
-	this->fixedPoint /= todiv.fixedPoint;
+	this->fixedPoint = Fixed(this->toFloat() / divby.toFloat()).fixedPoint;
 	return (*this);
 }
 
