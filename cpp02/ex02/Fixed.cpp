@@ -133,3 +133,21 @@ Fixed			Fixed::operator--(int)
 	return (tmp);
 }
 
+// min/max member function
+
+Fixed&	Fixed::max(Fixed& a, Fixed& b)
+{
+	return ((a > b) ? a : b);
+}
+Fixed&	Fixed::min(Fixed& a, Fixed& b)
+{
+	return ((a < b) ? a : b);
+}
+const	Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
+{
+	return (((Fixed)a > b) ? a : b);
+}
+const	Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
+{
+	return (((Fixed)a < b) ? a : b);
+}

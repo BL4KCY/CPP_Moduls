@@ -35,6 +35,11 @@ public:
 	Fixed&			operator--();
 	Fixed			operator--(int);
 
+	// Static members
+	static			Fixed&	max(Fixed& a, Fixed& b);
+	static			Fixed&	min(Fixed& a, Fixed& b);
+	static const	Fixed&	max(const Fixed& a, const Fixed& b);
+	static const	Fixed&	min(const Fixed& a, const Fixed& b);
 	int				getRawBits( void ) const;
 	void			setRawBits( int const raw );
 	float			toFloat( void ) const;
