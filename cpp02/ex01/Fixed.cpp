@@ -41,6 +41,8 @@ void	Fixed::setRawBits( int const raw )
 	this->fixedPoint = raw;
 }
 
+// Ex01
+
 Fixed::Fixed(int intValue)
 {
 	fixedPoint = intValue << fractionalBits;
