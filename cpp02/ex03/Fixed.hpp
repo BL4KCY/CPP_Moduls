@@ -18,17 +18,17 @@ public:
 
 	Fixed&			operator=( const Fixed &copy );
 	//  Comparison operators:
-	bool			operator>( const Fixed &toCmp );
-	bool			operator>=( const Fixed &toCmp );
-	bool			operator<( const Fixed &toCmp );
-	bool			operator<=( const Fixed &toCmp );
-	bool			operator==( const Fixed &toCmp );
-	bool			operator!=( const Fixed &toCmp );
+	bool			operator>( const Fixed &toCmp ) const;
+	bool			operator>=( const Fixed &toCmp ) const;
+	bool			operator<( const Fixed &toCmp ) const;
+	bool			operator<=( const Fixed &toCmp ) const;
+	bool			operator==( const Fixed &toCmp ) const;
+	bool			operator!=( const Fixed &toCmp ) const;
 	// Arithmetic operators:
-	Fixed&			operator+( const Fixed &toAdd );
-	Fixed&			operator-( const Fixed &toSub );
-	Fixed&			operator*( const Fixed &toMul );
-	Fixed&			operator/( const Fixed &divBy );
+	Fixed			operator+( const Fixed &toAdd ) const;
+	Fixed			operator-( const Fixed &toSub ) const;
+	Fixed			operator*( const Fixed &toMul ) const;
+	Fixed			operator/( const Fixed &divBy ) const;
 	//  increment/decrement
 	Fixed&			operator++();
 	Fixed			operator++(int);
