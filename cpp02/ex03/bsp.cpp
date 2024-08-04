@@ -13,7 +13,7 @@ float	area(const Point& a, const Point& b, const Point& c)
 		) / 2
 	);
 
-	return ((0 > A) ? (A) : (A));
+	return ((0 > A) ? (-A) : (A));
 }
 bool	bsp( Point const a, Point const b, Point const c, Point const point)
 {
