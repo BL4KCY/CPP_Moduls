@@ -7,15 +7,21 @@ NAME = fixed
 
 SRCS = main.cpp Fixed.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJDIR = obj
+
+OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
