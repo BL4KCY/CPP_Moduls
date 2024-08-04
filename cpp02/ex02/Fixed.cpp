@@ -42,7 +42,7 @@ Fixed::Fixed(float floatValue)
 
 float	Fixed::toFloat( void ) const
 {
-	return ((float)fixedPoint / ((float)(1 << fractionalBits)));
+	return ((float)fixedPoint / (1 << fractionalBits));
 }
 
 int		Fixed::toInt( void ) const
@@ -58,55 +58,51 @@ std::ostream&	operator<<(std::ostream& cout, const Fixed& fixedObject)
 // Ex-02
 
 // Comparison operators:
-bool			Fixed::operator>( const Fixed &toCmp )
+bool			Fixed::operator>( const Fixed &toCmp ) const
 {
 	return (this->fixedPoint > toCmp.fixedPoint);
 }
-bool			Fixed::operator>=( const Fixed &toCmp )
+bool			Fixed::operator>=( const Fixed &toCmp ) const
 {
 	return (this->fixedPoint >= toCmp.fixedPoint);
 }
-bool			Fixed::operator<( const Fixed &toCmp )
+bool			Fixed::operator<( const Fixed &toCmp ) const
 {
 	return (this->fixedPoint < toCmp.fixedPoint);
 }
-bool			Fixed::operator<=( const Fixed &toCmp )
+bool			Fixed::operator<=( const Fixed &toCmp ) const
 {
 	return (this->fixedPoint <= toCmp.fixedPoint);
 }
-bool			Fixed::operator==( const Fixed &toCmp )
+bool			Fixed::operator==( const Fixed &toCmp ) const
 {
 	return (this->fixedPoint == toCmp.fixedPoint);
 }
-bool			Fixed::operator!=( const Fixed &toCmp )
+bool			Fixed::operator!=( const Fixed &toCmp ) const
 {
 	return (this->fixedPoint != toCmp.fixedPoint);
 }
 
 // Arithmetic operators:
 
-Fixed&			Fixed::operator+( const Fixed &toAdd )
+Fixed			Fixed::operator+( const Fixed &toAdd ) const
 {
-	this->fixedPoint += toAdd.fixedPoint;
-	return (*this);
+	return Fixed(this->toFloat() + toAdd.toFloat());
 }
 
-Fixed&			Fixed::operator-( const Fixed &toSub )
+Fixed			Fixed::operator-( const Fixed &toSub ) const
 {
-	this->fixedPoint -= toSub.fixedPoint;
-	return (*this);
+	return Fixed(this->toFloat() - toSub.toFloat());
 }
 
-Fixed&			Fixed::operator*( const Fixed &toMul )
+Fixed			Fixed::operator*( const Fixed &toMul ) const
 {
-	this->fixedPoint = Fixed(this->toFloat() * toMul.toFloat()).fixedPoint;
-	return (*this);
+	return Fixed(this->toFloat() * toMul.toFloat());
 }
 
-Fixed&			Fixed::operator/( const Fixed &divby )
+Fixed			Fixed::operator/( const Fixed &divby ) const
 {
-	this->fixedPoint = Fixed(this->toFloat() / divby.toFloat()).fixedPoint;
-	return (*this);
+	return Fixed(this->toFloat() / divby.toFloat());
 }
 
 //  increment/decrement
