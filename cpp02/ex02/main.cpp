@@ -19,11 +19,13 @@ int main( void ) {
 	float
 	f1  = 5.6f,
 	f2  = 1.125;
-	// f3  = 1.125;
 
 	const Fixed	x(f1);
 	const Fixed	z(f2);
 	const Fixed	y(f2);
+	Fixed		w(1.5f);
+	Fixed		v(3);
+
 
 	std::cout << "y: " << y << std::endl;
 	std::cout << "z: " << z << std::endl;
@@ -45,8 +47,10 @@ int main( void ) {
 	std::cout << "cmp z != y: " << (z != y) << std::endl;
 
 	std::cout << "_____________min/max tests_____________" << std::endl;
-	std::cout << "max: " << Fixed::max(x, y) << std::endl;
-	std::cout << "min: " << Fixed::min(x, y) << std::endl;
+	std::cout << "const-max: " << Fixed::max(x, y) << std::endl;
+	std::cout << "const-min: " << Fixed::min(x, y) << std::endl;
+	std::cout << "max: " << Fixed::max(w, v) << std::endl;
+	std::cout << "min: " << Fixed::min(w, v) << std::endl;
 
 	std::cout << "_____________increment/decrement tests_____________" << std::endl;
 	Fixed c(10.5f);
