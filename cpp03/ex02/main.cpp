@@ -1,12 +1,14 @@
-#include "ScavTrap.hpp"
-
+#include "FragTrap.hpp"
 
 
 int main(void)
 {
-	ScavTrap scavTrap("jojo");
-	scavTrap.guardGate();
+	FragTrap ft("waizy");
 
+	ft.attack("target");
 
+	ft.highFivesGuys();
+
+	
 	return (0);
 }
