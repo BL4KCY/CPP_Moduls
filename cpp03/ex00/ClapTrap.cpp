@@ -104,3 +104,13 @@ int		ClapTrap::getAttackDamage(void) const
 {
 	return (this->attackDamage);
 }
+
+std::string	ClapTrap::getName(void) const
+{
+	return (this->name);
+}
+
+void	ClapTrap::setName(std::string name)
+{
+	this->name = name;
+}

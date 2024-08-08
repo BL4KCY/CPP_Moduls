@@ -30,4 +30,6 @@ public:
 	int		getEnergyPoint(void) const;
 	void	setAttackDamage(int attackDamage);
 	int		getAttackDamage(void) const;
+	std::string	getName(void) const;
+	void	setName(std::string name);
 };
