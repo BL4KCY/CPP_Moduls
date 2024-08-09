@@ -2,45 +2,52 @@
 
 ScavTrap::ScavTrap()
 {
-	setHitPoint(100);
-	setEnergyPoint(50);
-	setAttackDamage(20);
-	std::cout << "ScavTrap: " << getName() << " is created (Default name)" << std::endl;
+	hitPoint = 100;
+	energyPoint = 50;
+	attackDamage = 20;
+	std::cout << "ScavTrap: " << name << " is created (Default name)" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+ScavTrap::ScavTrap(std::string name)
 {
-	setHitPoint(100);
-	setEnergyPoint(50);
-	setAttackDamage(20);
-	std::cout << "ScavTrap: " << getName() << " is created" << std::endl;
+	this->name = name;
+	hitPoint = 100;
+	energyPoint = 50;
+	attackDamage = 20;
+	std::cout << "ScavTrap: " << name << " is created" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& copy): ClapTrap(copy)
+ScavTrap::ScavTrap(const ScavTrap& copy)
 {
-	std::cout << "ScavTrap: " << getName() << " is copied" << std::endl;
+	this->name = copy.name;
+	hitPoint = copy.hitPoint;
+	energyPoint = copy.energyPoint;
+	attackDamage = copy.attackDamage;
+	
+	std::cout << "ScavTrap: " << name << " is copied" << std::endl;
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& copy)
 {
-	setHitPoint(copy.getHitPoint());
-	setEnergyPoint(copy.getEnergyPoint());
-	setAttackDamage(copy.getAttackDamage());
-	std::cout << "ScavTrap: " << getName() << " is assigned" << std::endl;
+	this->name = copy.name;
+	this->hitPoint = copy.hitPoint;
+	this->energyPoint = copy.energyPoint;
+	this->attackDamage = copy.attackDamage;
+	std::cout << "ScavTrap: " << name << " is assigned" << std::endl;
 	return (*this);
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap: " << getName() << " is destroyed" << std::endl;
+	std::cout << "ScavTrap: " << name << " is destroyed" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
 {
-	std::cout << "ScavTrap: " << getName() << " attack " << target << " causing " << this->getAttackDamage() << " points of damage" << std::endl;
+	std::cout << "ScavTrap: " << name << " attack " << target << " causing " << attackDamage << " points of damage" << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap: " << getName() << " have enterred in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap: " << name << " have enterred in Gate keeper mode" << std::endl;
 }
