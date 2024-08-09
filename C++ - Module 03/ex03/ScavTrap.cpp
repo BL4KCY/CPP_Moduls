@@ -19,6 +19,7 @@ ScavTrap::ScavTrap(std::string name)
 
 ScavTrap::ScavTrap(const ScavTrap& copy): ClapTrap(copy)
 {
+	this->name = copy.name;
 	hitPoint = copy.hitPoint;
 	energyPoint = copy.energyPoint;
 	attackDamage = copy.attackDamage;

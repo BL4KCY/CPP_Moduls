@@ -17,13 +17,13 @@ ScavTrap::ScavTrap(std::string name)
 	std::cout << "ScavTrap: " << name << " is created" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& copy)
+ScavTrap::ScavTrap(const ScavTrap& copy): ClapTrap(copy)
 {
 	this->name = copy.name;
 	hitPoint = copy.hitPoint;
 	energyPoint = copy.energyPoint;
 	attackDamage = copy.attackDamage;
-	
+
 	std::cout << "ScavTrap: " << name << " is copied" << std::endl;
 }
 
@@ -33,6 +33,7 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& copy)
 	this->hitPoint = copy.hitPoint;
 	this->energyPoint = copy.energyPoint;
 	this->attackDamage = copy.attackDamage;
+	
 	std::cout << "ScavTrap: " << name << " is assigned" << std::endl;
 	return (*this);
 }
