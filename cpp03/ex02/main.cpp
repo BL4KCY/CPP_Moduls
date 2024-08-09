@@ -3,12 +3,14 @@
 
 int main(void)
 {
-	FragTrap ft("waizy");
+	FragTrap A;
+	FragTrap B("B");
+	FragTrap C = B;
+	A = C;
 
-	ft.attack("target");
+	C.highFivesGuys();
 
-	ft.highFivesGuys();
+	C.attack("A");
 
-	
 	return (0);
 }
