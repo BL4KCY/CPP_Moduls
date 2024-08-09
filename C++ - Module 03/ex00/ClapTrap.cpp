@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(const ClapTrap& copy)
 	this->hitPoint = copy.hitPoint;
 	this->energyPoint = copy.energyPoint;
 	this->attackDamage = copy.attackDamage;
-	std::cout << "ClapTrap: " << this->name << " copied" << std::endl;
+	std::cout << "ClapTrap: " << this->name << " is copied" << std::endl;
 }
 ClapTrap&	ClapTrap::operator=(const ClapTrap& copy)
 {

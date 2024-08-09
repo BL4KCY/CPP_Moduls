@@ -8,7 +8,7 @@ ScavTrap::ScavTrap()
 	std::cout << "ScavTrap: " << name << " is created (Default name)" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	this->name = name;
 	hitPoint = 100;

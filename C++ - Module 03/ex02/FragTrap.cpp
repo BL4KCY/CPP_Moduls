@@ -8,7 +8,7 @@ FragTrap::FragTrap()
 	std::cout << "FragTrap: " << name << " is created (Default name)" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	this->name = name;
 	hitPoint = 100;

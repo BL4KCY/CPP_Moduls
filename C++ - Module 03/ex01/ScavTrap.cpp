@@ -8,7 +8,7 @@ ScavTrap::ScavTrap()
 	std::cout << "ScavTrap: " << name << " is created (Default name)" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	this->name = name;
 	hitPoint = 100;
@@ -33,7 +33,7 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& copy)
 	this->hitPoint = copy.hitPoint;
 	this->energyPoint = copy.energyPoint;
 	this->attackDamage = copy.attackDamage;
-	
+
 	std::cout << "ScavTrap: " << name << " is assigned" << std::endl;
 	return (*this);
 }

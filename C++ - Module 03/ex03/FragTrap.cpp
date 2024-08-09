@@ -8,7 +8,7 @@ FragTrap::FragTrap()
 	std::cout << "FragTrap: " << name << " is created (Default name)" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	this->name = name;
 	hitPoint = 100;
@@ -19,6 +19,7 @@ FragTrap::FragTrap(std::string name)
 
 FragTrap::FragTrap(const FragTrap& copy): ClapTrap(copy)
 {
+	this->name = copy.name;
 	hitPoint = copy.hitPoint;
 	energyPoint = copy.energyPoint;
 	attackDamage = copy.attackDamage;
