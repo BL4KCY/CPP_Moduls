@@ -8,8 +8,9 @@ FragTrap::FragTrap()
 	std::cout << "FragTrap: " << name << " is created (Default name)" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name): ClapTrap(name)
+FragTrap::FragTrap(std::string name)
 {
+	this->name = name;
 	hitPoint = 100;
 	energyPoint = 100;
 	attackDamage = 30;
@@ -18,12 +19,20 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 
 FragTrap::FragTrap(const FragTrap& copy): ClapTrap(copy)
 {
+	hitPoint = copy.hitPoint;
+	energyPoint = copy.energyPoint;
+	attackDamage = copy.attackDamage;
+
 	std::cout << "FragTrap: " << name << " is copied" << std::endl;
 }
 
 FragTrap&	FragTrap::operator=(const FragTrap& copy)
 {
-	*this = copy;
+	this->name = copy.name;
+	this->hitPoint = copy.hitPoint;
+	this->energyPoint = copy.energyPoint;
+	this->attackDamage = copy.attackDamage;
+
 	std::cout << "FragTrap: " << name << " is assigned" << std::endl;
 	return (*this);
 }

@@ -19,9 +19,13 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name")
 	std::cout << "DiamondTrap: " << this->name << " is created" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &diamondTrap): ClapTrap(name + "_clap_name")
+DiamondTrap::DiamondTrap(const DiamondTrap &diamondTrap): ClapTrap(diamondTrap), ScavTrap(diamondTrap), FragTrap(diamondTrap)
 {
 	this->name = diamondTrap.name;
+	this->hitPoint = diamondTrap.hitPoint;
+	this->energyPoint = diamondTrap.energyPoint;
+	this->attackDamage = diamondTrap.attackDamage;
+
 	std::cout << "DiamondTrap: " << this->name << " is copied" << std::endl;
 }
 
