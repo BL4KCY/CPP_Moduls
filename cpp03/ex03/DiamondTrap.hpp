@@ -8,10 +8,10 @@ private:
 public:
 	DiamondTrap();
 	DiamondTrap(std::string name);
-	// DiamondTrap(const DiamondTrap &diamondTrap);
+	DiamondTrap(const DiamondTrap &diamondTrap);
 	~DiamondTrap();
-	// DiamondTrap &operator=(const DiamondTrap &diamondTrap);
+	DiamondTrap &operator=(const DiamondTrap &diamondTrap);
 
-	// void attack(std::string const & target);
-	// void whoAmI();
+	void attack(std::string const & target);
+	void whoAmI();
 };

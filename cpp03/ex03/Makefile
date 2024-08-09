@@ -28,5 +28,12 @@ fclean: clean
 
 re: fclean all
 
+r:$(NAME)
+	clear
+	@echo "Running $(NAME)..."
+	@./$(NAME)
+rer: re r
+
 #___for the .SECONDARY rule, it is used to prevent the deletion of the intermediate files.
 .SECONDARY: $(OBJS)
+

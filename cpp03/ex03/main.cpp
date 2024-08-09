@@ -12,5 +12,7 @@ int main(void)
 
 	C.attack("A");
 
+	A.whoAmI();
+
 	return (0);
 }
