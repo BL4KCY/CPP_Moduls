@@ -5,12 +5,12 @@
 
 ClapTrap::ClapTrap(): name("unamed"), hitPoint(10), energyPoint(10), attackDamage(0)
 {
-	std::cout << "ClapTrap " << this->name << " is created" << std::endl;
+	std::cout << "ClapTrap: " << this->name << " is created (Default name)" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name): name(name), hitPoint(10), energyPoint(10), attackDamage(0)
 {
-	std::cout << "ClapTrap " << this->name << " is created" << std::endl;
+	std::cout << "ClapTrap: " << this->name << " is created" << std::endl;
 }
 ClapTrap::ClapTrap(const ClapTrap& copy)
 {
@@ -26,18 +26,18 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& copy)
 	this->hitPoint = copy.hitPoint;
 	this->energyPoint = copy.energyPoint;
 	this->attackDamage = copy.attackDamage;
-	std::cout << "ClapTrap " << this->name << " assigned" << std::endl;
+	std::cout << "ClapTrap: " << this->name << " assigned" << std::endl;
 	return (*this);
 }
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap " << this->name << " is destroyed" << std::endl;
+	std::cout << "ClapTrap: " << this->name << " is destroyed" << std::endl;
 }
 void	ClapTrap::attack(const std::string& target)
 {
 	if (this->hitPoint && this->energyPoint)
 	{
-		std::cout << "ClapTrap " << this->name
+		std::cout << "ClapTrap: " << this->name
 		<< " attack " << target << ", causing "
 		<< this->attackDamage << " points of damage!"
 		<< std::endl;
