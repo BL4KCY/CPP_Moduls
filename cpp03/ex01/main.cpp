@@ -4,9 +4,14 @@
 
 int main(void)
 {
-	ScavTrap scavTrap("jojo");
-	scavTrap.guardGate();
+	ScavTrap A;
+	ScavTrap B("B");
+	ScavTrap C = B;
+	A = C;
 
+	C.guardGate();
+
+	C.attack("A");
 
 	return (0);
 }
