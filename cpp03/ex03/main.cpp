@@ -1,14 +1,16 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 
 int main(void)
 {
-	FragTrap ft("waizy");
+	DiamondTrap A;
+	DiamondTrap B("B");
+	DiamondTrap C = B;
+	A = C;
 
-	ft.attack("target");
+	C.highFivesGuys();
 
-	ft.highFivesGuys();
+	C.attack("A");
 
-	
 	return (0);
 }
