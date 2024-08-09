@@ -10,7 +10,8 @@ int main(void)
 	A = C;
 
 	C.guardGate();
-
+	C.takeDamage(10);
+	C.beRepaired(10);
 	C.attack("A");
 
 	return (0);
