@@ -11,7 +11,6 @@ protected:
 public:
 	WrongAnimal();
 	WrongAnimal(const WrongAnimal &copy);
-	WrongAnimal(std::string type);
 	WrongAnimal&	operator=(const WrongAnimal &copy);
 	~WrongAnimal();
 
