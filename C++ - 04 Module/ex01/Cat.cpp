@@ -3,6 +3,7 @@
 Cat::Cat()
 {
 	this->type = "Cat";
+	this->brain = new Brain();
 	std::cout << "Cat Created" << std::endl;
 }
 
@@ -19,6 +20,7 @@ Cat&	Cat::operator=(const Cat &copy)
 
 Cat::~Cat()
 {
+	delete this->brain;
 	std::cout << "Cat Destroyed" << std::endl;
 }
 

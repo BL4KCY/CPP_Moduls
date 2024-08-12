@@ -3,6 +3,7 @@
 Dog::Dog()
 {
 	this->type = "Dog";
+	this->brain = new Brain();
 	std::cout << "Dog Created" << std::endl;
 }
 
@@ -19,6 +20,7 @@ Dog&	Dog::operator=(const Dog &copy)
 
 Dog::~Dog()
 {
+	delete this->brain;
 	std::cout << "Dog Destroyed" << std::endl;
 }
 
