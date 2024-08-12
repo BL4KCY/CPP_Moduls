@@ -8,6 +8,7 @@ Brain::Brain()
 Brain::Brain(const Brain &copy)
 {
 	*this = copy;
+	std::cout << "Brain is copied" << std::endl;
 }
 
 Brain&	Brain::operator=(const Brain &copy)

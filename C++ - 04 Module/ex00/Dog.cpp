@@ -9,6 +9,7 @@ Dog::Dog()
 Dog::Dog(const Dog &copy): Animal(copy)
 {
 	this->type = copy.type;
+	std::cout << "Dog copied" << std::endl;
 }
 
 Dog&	Dog::operator=(const Dog &copy)

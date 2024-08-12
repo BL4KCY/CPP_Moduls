@@ -9,6 +9,7 @@ Cat::Cat()
 Cat::Cat(const Cat &copy): Animal(copy)
 {
 	this->type = copy.type;
+	std::cout << "Cat copied" << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat &copy)

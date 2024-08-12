@@ -11,6 +11,7 @@ Animal::Animal()
 Animal::Animal(const Animal &copy)
 {
 	this->type = copy.type;
+	std::cout << "Animal copied" << std::endl;
 }
 
 Animal&	Animal::operator=(const Animal &copy)

@@ -8,6 +8,9 @@ int main()
 	const Animal* i = new Cat();
 
 
+	delete j;//should not create a leak
+	delete i;
+
 	std::cout << "_________| array test |_________" << std::endl;
 
 	Animal* array[4];
@@ -26,8 +29,16 @@ int main()
 	}
 
 	std::cout << "_________| end array test |_________" << std::endl;
+	std::cout << "_________| deep copy test |_________" << std::endl;
 
-	delete j;//should not create a leak
-	delete i;
+	Cat		cat;
+	Cat		cat2(cat);
+
+	cat2.setType("cat2");
+	std::cout << "cat1 type: " << cat.getType() << std::endl;
+	std::cout << "cat2 type: " << cat2.getType() << std::endl;
+
+	std::cout << "_________| end deep copy test |_________" << std::endl;
+
 	return 0;
 }

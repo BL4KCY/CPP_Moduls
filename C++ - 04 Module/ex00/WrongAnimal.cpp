@@ -11,6 +11,7 @@ WrongAnimal::WrongAnimal()
 WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 {
 	this->type = copy.type;
+	std::cout << "WrongAnimal copied" << std::endl;
 }
 
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &copy)

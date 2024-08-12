@@ -10,11 +10,14 @@ Cat::Cat()
 Cat::Cat(const Cat &copy): Animal(copy)
 {
 	this->type = copy.type;
+	this->brain = new Brain(*copy.brain);
+	std::cout << "Cat copied" << std::endl;
 }
 
 Cat&	Cat::operator=(const Cat &copy)
 {
 	this->type = copy.type;
+	*this->brain = *copy.brain;
 	return (*this);
 }
 
