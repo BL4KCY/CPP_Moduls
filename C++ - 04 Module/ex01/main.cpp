@@ -6,25 +6,28 @@ int main()
 {
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+	const Animal* k = new Animal();
 
 
 	delete j;//should not create a leak
 	delete i;
+	delete k;
 
 	std::cout << "_________| array test |_________" << std::endl;
 
-	Animal* array[4];
-
-	for (int i = 0; i < 4; i++)
+	Animal* array[] =
 	{
-		if (i % 2 == 0)
-			array[i] = new Dog();
-		else
-			array[i] = new Cat();
-	}
+		new Dog(),
+		new Dog(),
+		new Dog(),
+		new Cat(),
+		new Cat(),
+		new Cat()
+	};
 
-	for (int i = 0; i < 4; i++)
+	for (unsigned long i = 0; i < sizeof(array) / sizeof(*array); i++)
 	{
+		std::cout << "__| " << i << " |__" << std::endl;
 		delete array[i];
 	}
 
