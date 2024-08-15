@@ -3,8 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include "Character.hpp"
-
 
 class ICharacter;
 

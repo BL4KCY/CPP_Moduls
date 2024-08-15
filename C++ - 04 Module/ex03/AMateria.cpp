@@ -1,6 +1,4 @@
-#include "AMateria.hpp"
-
-
+#include "ICharacter.hpp"
 
 
 
@@ -25,4 +23,9 @@ AMateria&	AMateria::operator=(const AMateria& amateriaObj)
 std::string const & AMateria::getType() const
 {
 	return (this->type);
+}
+
+void AMateria::use(ICharacter& target)
+{
+	(void)target;
 }

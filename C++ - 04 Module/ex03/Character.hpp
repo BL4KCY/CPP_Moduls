@@ -2,12 +2,6 @@
 
 #include "ICharacter.hpp"
 
-#include "AMateria.hpp"
-
-
-
-class ICharacter;
-
 //____________Character concrete_____________//
 class Character: public ICharacter
 {
