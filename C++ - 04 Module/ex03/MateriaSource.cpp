@@ -22,7 +22,11 @@ MateriaSource::MateriaSource(const MateriaSource& copy)
 
 MateriaSource::~MateriaSource()
 {
-	// todo: delete all inventory
+	for (int i = 0; i < 4; i++)
+	{
+		if (inventory[i])
+			delete inventory[i];
+	}
 }
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& assign)
@@ -31,9 +35,12 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& assign)
 		return *this;
 	for (int i = 0; i < 4; i++)
 	{
-		// todo: delete all inventory
 		if (assign.inventory[i])
+		{
+			if (inventory[i])
+				delete inventory[i];
 			inventory[i] = assign.inventory[i]->clone();
+		}
 		else
 			inventory[i] = NULL;
 	}

@@ -8,6 +8,7 @@ class Character: public ICharacter
 private:
 	std::string	name;
 	AMateria*	inventory[4];
+	AMateria*	*cloneInventory;
 public:
 	Character();
 	Character(std::string name);
@@ -19,4 +20,5 @@ public:
 	void equip(AMateria* m);
 	void unequip(int idx);
 	void use(int idx, ICharacter& target);
+	bool inInventory(AMateria* m);
 };
