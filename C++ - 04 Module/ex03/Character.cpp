@@ -7,6 +7,8 @@ Character::Character()
 	this->name = "default";
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
+	for (int i = 0; i < 4; i++)
+		this->inventoryCopy[i] = NULL;
 }
 
 Character::Character(std::string name)
@@ -14,6 +16,8 @@ Character::Character(std::string name)
 	this->name = name;
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
+	for (int i = 0; i < 4; i++)
+		this->inventoryCopy[i] = NULL;
 }
 
 Character::Character(const Character& copy)
@@ -26,6 +30,8 @@ Character::Character(const Character& copy)
 		else
 			this->inventory[i] = NULL;
 	}
+	for (int i = 0; i < 4; i++)
+		this->inventoryCopy[i] = NULL;
 }
 
 Character::~Character()
@@ -35,6 +41,7 @@ Character::~Character()
 		if (this->inventory[i] != NULL)
 			delete this->inventory[i];
 	}
+	this->addToInventoryCopy(NULL);
 }
 
 Character&	Character::operator=(const Character& assign)
@@ -64,6 +71,7 @@ void Character::equip(AMateria* m)
 	{
 		if (this->inventory[i] == NULL)
 		{
+			this->addToInventoryCopy(NULL);
 			if (inInventory(m))
 				this->inventory[i] = m->clone();
 			else
@@ -77,8 +85,11 @@ void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4)
 	{
-		delete this->inventory[idx]; // delete the materia
-		this->inventory[idx] = NULL;
+		if (this->inventory[idx] != NULL)
+		{
+			this->addToInventoryCopy(this->inventory[idx]);
+			this->inventory[idx] = NULL;
+		}
 	}
 }
 
@@ -97,4 +108,25 @@ bool	Character::inInventory(AMateria* m)
 			return true;
 	}
 	return false;
+}
+
+void	Character::addToInventoryCopy(AMateria* m)
+{
+	if (m == NULL)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (this->inventoryCopy[i] != NULL)
+				delete this->inventoryCopy[i];
+			this->inventoryCopy[i] = NULL;
+		}
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->inventoryCopy[i] == NULL)
+		{
+			this->inventoryCopy[i] = m;
+			break;
+		}
+	}
 }

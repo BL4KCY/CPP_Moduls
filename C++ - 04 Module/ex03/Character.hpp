@@ -8,7 +8,8 @@ class Character: public ICharacter
 private:
 	std::string	name;
 	AMateria*	inventory[4];
-	AMateria*	*cloneInventory;
+	AMateria*	inventoryCopy[4];
+	void addToInventoryCopy(AMateria* m);
 public:
 	Character();
 	Character(std::string name);
