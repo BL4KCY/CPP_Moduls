@@ -43,5 +43,17 @@ int main()
 
 	std::cout << "_________| end deep copy test |_________" << std::endl;
 
+	// std::cout << "_________| idea class test |_________" << std::endl;
+
+	// Brain	brain;
+	// for (int i = 0; i < 101; i++)
+	// {
+	// 	brain.setIdea(i, "idea: ");
+	// }
+	// for (int i = 0; i < 101; i++)
+	// {
+	// 	std::cout << brain.getIdea(i) << i << std::endl;
+	// }
+
 	return 0;
 }
