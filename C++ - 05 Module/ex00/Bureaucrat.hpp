@@ -10,6 +10,7 @@ class Bureaucrat
 		const std::string	_name;
 		int _grade;
 	public :
+		Bureaucrat(void);
 		Bureaucrat(std::string const name, int grade);
 		Bureaucrat(Bureaucrat const &copy);
 		~Bureaucrat(void);

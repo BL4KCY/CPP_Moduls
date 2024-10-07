@@ -1,6 +1,9 @@
 #include "Bureaucrat.hpp"
 
-
+Bureaucrat::Bureaucrat(void): _name("Default")
+{
+	this->_grade = 150;
+}
 
 Bureaucrat::Bureaucrat(std::string const name, int grade): _name(name)
 {

@@ -2,6 +2,9 @@
 
 int main()
 {
+	Bureaucrat defaultBureaucrat;
+	std::cout << defaultBureaucrat;
+	// defaultBureaucrat.decrementGrade();  // uncomment to test exception without try/catch "
 	try
 	{
 		Bureaucrat hassan("hassan", 1);
