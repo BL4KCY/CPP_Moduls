@@ -29,7 +29,7 @@ int main()
 		{
 			std::cerr << e.what() << '\n';
 		}
-		Form	wrong_war9a("chahada ضهادة", 25, 160);
+		Form	wrong_war9a("chahada 3ozoba", 25, 160);
 		std::cout << wrong_war9a; // should not be printed because of exception (GradeTooLowException)
 	}
 	catch(const std::exception& e)
