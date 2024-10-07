@@ -12,7 +12,7 @@ int main()
 			std::cout << "-----------| test hassan |--------------" << std::endl;
 			Bureaucrat hassan("hassan", 1);
 			std::cout << hassan;
-			hassan.beSigned(war9a);
+			hassan.signForm(war9a);
 		}
 		catch(const std::exception& e)
 		{
@@ -23,13 +23,14 @@ int main()
 			std::cout << "-----------| test benMossa |--------------" << std::endl;
 			Bureaucrat benMoussa("benMossa", 150);
 			std::cout << benMoussa;
-			benMoussa.beSigned(war9a);
+			benMoussa.signForm(war9a);
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
 		Form	wrong_war9a("chahada ضهادة", 25, 160);
+		std::cout << wrong_war9a; // should not be printed because of exception (GradeTooLowException)
 	}
 	catch(const std::exception& e)
 	{

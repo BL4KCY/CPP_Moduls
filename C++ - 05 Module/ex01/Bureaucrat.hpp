@@ -21,7 +21,7 @@ class Bureaucrat
 		std::string	getName(void) const;
 		void 		incrementGrade(void);
 		void 		decrementGrade(void);
-		void		beSigned(Form &form);
+		void		signForm(Form &form);
 };
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat const &rhs);

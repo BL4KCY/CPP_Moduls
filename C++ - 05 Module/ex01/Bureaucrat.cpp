@@ -57,7 +57,7 @@ std::ostream& operator<<(std::ostream &out, Bureaucrat const &rhs)
 	return out;
 }
 
-void		Bureaucrat::beSigned(Form &form)
+void		Bureaucrat::signForm(Form &form)
 {
 	try
 	{
