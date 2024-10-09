@@ -2,15 +2,11 @@
 
 
 
-PresidentialPardonForm::PresidentialPardonForm(void): AForm("PresidentialPardonForm", 72, 45)
-{
-	this->_target = "default";	
-}
+PresidentialPardonForm::PresidentialPardonForm(void)
+: AForm("PresidentialPardonForm", 72, 45, "default") {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const target): AForm("PresidentialPardonForm", 72, 45) 
-{
-	this->_target = target;
-}
+PresidentialPardonForm::PresidentialPardonForm(std::string const target)
+: AForm("PresidentialPardonForm", 72, 45, target) {}
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy)
 {
@@ -23,7 +19,7 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(PresidentialPardonForm
 {
 	if (this != &rhs)
 	{
-		this->_target = rhs._target;
+		*this = rhs;
 	}
 	return *this;
 }
@@ -34,5 +30,5 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 		throw std::logic_error(this->getName() + " Form not signed");
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw GradeTooLowException();
-	std::cout << this->_target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+	std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }

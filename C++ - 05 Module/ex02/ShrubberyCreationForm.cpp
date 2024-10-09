@@ -2,15 +2,11 @@
 
 
 
-ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("ShrubberyCreationForm", 145, 137)
-{
-	this->_target = "default";	
-}
+ShrubberyCreationForm::ShrubberyCreationForm(void)
+: AForm("ShrubberyCreationForm", 72, 45, "default") {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const target): AForm("ShrubberyCreationForm", 145, 137) 
-{
-	this->_target = target;
-}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const target)
+: AForm("ShrubberyCreationForm", 72, 45, target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy)
 {
@@ -23,7 +19,7 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 {
 	if (this != &rhs)
 	{
-		this->_target = rhs._target;
+		*this = rhs;
 	}
 	return *this;
 }
@@ -31,10 +27,10 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (!this->getSigned())
-		throw std::logic_error("(" + this->getName() + " Form not signed)");
+		throw std::logic_error(this->getName() + " Form not signed");
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw GradeTooLowException();
-	std::ofstream file((this->_target + "_shrubbery").c_str());
+	std::ofstream file((this->getTarget() + "_shrubbery").c_str());
     if (!file.is_open())
         throw std::runtime_error("The File Failed to open");
     file << "              _{\\ _{\\{\\/}/}/}__\n"

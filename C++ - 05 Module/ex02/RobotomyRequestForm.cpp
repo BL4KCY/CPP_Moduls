@@ -2,15 +2,11 @@
 
 
 
-RobotomyRequestForm::RobotomyRequestForm(void): AForm("RobotomyRequestForm", 72, 45)
-{
-	this->_target = "default";	
-}
+RobotomyRequestForm::RobotomyRequestForm(void)
+: AForm("RobotomyRequestForm", 72, 45, "default") {}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const target): AForm("RobotomyRequestForm", 72, 45) 
-{
-	this->_target = target;
-}
+RobotomyRequestForm::RobotomyRequestForm(std::string const target)
+: AForm("RobotomyRequestForm", 72, 45, target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy)
 {
@@ -23,7 +19,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(RobotomyRequestForm const &r
 {
 	if (this != &rhs)
 	{
-		this->_target = rhs._target;
+		*this = rhs;
 	}
 	return *this;
 }
@@ -38,7 +34,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
     // system("nvlc /nfs/homes/melfersi/Downloads/DrillNoises.mp3 > /dev/null 2>&1 &");
     std::cout << "🤖 Rrrrzzzzzzzz 🤖" << std::endl;
     if (rand() % 2)
-        std::cout << this->_target << " has been robotomized successfully ✅" << std::endl;
+        std::cout << this->getTarget() << " has been robotomized successfully ✅" << std::endl;
     else
-        std::cout << this->_target << " robotomization failed ❌" << std::endl;
+        std::cout << this->getTarget() << " robotomization failed ❌" << std::endl;
 }
