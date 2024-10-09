@@ -18,11 +18,7 @@ Form::Form(Form const &copy): _name(copy._name), _gradeToSign(copy._gradeToSign)
 	this->_signed = copy._signed;
 }
 
-
-Form::~Form(void)
-{
-	std::cout << "Form " << this->_name << " destroyed!" << std::endl;
-}
+Form::~Form(void) {}
 
 Form&	Form::operator=(Form const &rhs)
 {
