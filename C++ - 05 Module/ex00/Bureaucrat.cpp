@@ -18,10 +18,9 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy)
 {
 	*this = Bureaucrat(copy.getName(), copy.getGrade());
 }
-Bureaucrat::~Bureaucrat(void)
-{
-	std::cout << "Bureaucrat " << this->getName() << " destroyed!" << std::endl;
-}
+
+Bureaucrat::~Bureaucrat(void) {}
+
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &rhs)
 {
 	if (this != &rhs)

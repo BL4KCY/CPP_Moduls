@@ -2,7 +2,6 @@
 # define BUREAUCRAT_HPP
 # include <iostream>
 # include <string>
-# include "GradeException.hpp"
 
 class Bureaucrat
 {
@@ -22,5 +21,24 @@ class Bureaucrat
 };
 
 std::ostream& operator<<(std::ostream &out, Bureaucrat const &rhs);
+
+// Exceptions
+class GradeTooHighException : public std::exception
+{
+	public:
+		virtual const char *what() const throw()
+		{
+			return ("Grade is too high");
+		}
+};
+
+class GradeTooLowException : public std::exception
+{
+	public:
+		virtual const char *what() const throw()
+		{
+			return ("Grade is too low");
+		}
+};
 
 #endif
