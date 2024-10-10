@@ -68,3 +68,13 @@ void		Bureaucrat::signForm(Form &form)
 		std::cerr << this->_name << " couldn’t sign " << form.getName() << " because "	<< e.what() << std::endl;
 	}
 }
+
+const char*	GradeTooHighException::what() const throw()
+{
+	return ("Grade is too high");
+}
+
+const char*	GradeTooLowException::what() const throw()
+{
+	return ("Grade is too low");
+}

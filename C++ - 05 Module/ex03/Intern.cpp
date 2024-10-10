@@ -20,11 +20,9 @@ AForm*	Intern::makeForm(std::string const name, std::string const target)
 {
 	if (name == "ShrubberyCreationForm")
 		return new ShrubberyCreationForm(target);
-	else if (name == "RobotomyRequestForm")
+	if (name == "RobotomyRequestForm")
 		return new RobotomyRequestForm(target);
-	else if (name == "PresidentialPardonForm")
+	if (name == "PresidentialPardonForm")
 		return new PresidentialPardonForm(target);
-	else
-		throw std::invalid_argument("Invalid Form Name");
-	return NULL;
+	throw std::invalid_argument("Invalid Form Name");
 }
