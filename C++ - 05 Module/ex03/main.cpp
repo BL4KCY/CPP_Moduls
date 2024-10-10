@@ -20,6 +20,9 @@ int main()
 		bureaucrat.signForm(*form3);
 		bureaucrat.executeForm(*form3);
 		
+		delete	form1;
+		delete	form2;
+		delete	form3;
 		AForm*	form4 = Intern::makeForm("Wrong form name", "car"); // should throw an error
 
 		bureaucrat.signForm(*form4);
