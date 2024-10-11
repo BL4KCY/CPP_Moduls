@@ -18,11 +18,22 @@ Intern&	Intern::operator=(Intern const &rhs)
 
 AForm*	Intern::makeForm(std::string const name, std::string const target)
 {
-	if (name == "ShrubberyCreationForm")
-		return new ShrubberyCreationForm(target);
-	if (name == "RobotomyRequestForm")
-		return new RobotomyRequestForm(target);
-	if (name == "PresidentialPardonForm")
-		return new PresidentialPardonForm(target);
-	throw std::invalid_argument("Invalid Form Name");
+	uint16_t	index = 3;
+
+	index = (name == "ShrubberyCreationForm") ? 0 : index;
+	index = (name == "RobotomyRequestForm") ? 1 : index;
+	index = (name == "PresidentialPardonForm") ? 2 : index;
+
+	(index == 3) ? throw std::invalid_argument("Invalid Form Name"):0;
+
+	AForm*		forms[] = 
+	{
+		new	ShrubberyCreationForm(target),
+		new	RobotomyRequestForm(target),
+		new	PresidentialPardonForm(target)
+	};
+
+	for (int i = 0 ; i < 3; i++) if (forms[i] != forms[index]) delete forms[i];
+	return (forms[index]);
 }
+		

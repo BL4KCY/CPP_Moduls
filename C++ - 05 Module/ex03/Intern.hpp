@@ -1,5 +1,6 @@
 #ifndef INTERN_HPP
 # define INTERN_HPP
+# include <stdint.h>
 # include "ShrubberyCreationForm.hpp"
 # include "PresidentialPardonForm.hpp"
 # include "RobotomyRequestForm.hpp"
