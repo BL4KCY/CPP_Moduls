@@ -1,5 +1,4 @@
 // c++98
-
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 # include <string>
@@ -25,7 +24,10 @@ class ScalarConverter
 private:
 	static	ScalarType	_getType(string& value);
 public:
-	ScalarConverter(){};
+	ScalarConverter();
+	ScalarConverter(const ScalarConverter& obj);
+	ScalarConverter& operator=(const ScalarConverter& obj);
+	~ScalarConverter();
 	static void	convert(string& value);
 };
 

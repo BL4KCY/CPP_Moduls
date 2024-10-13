@@ -1,4 +1,6 @@
 #include "ScalarConverter.hpp"
+
+
 void	ScalarConverter::convert(string& s)
 {
 	switch (_getType(s))
@@ -117,4 +119,20 @@ ScalarType	ScalarConverter::_getType(string& value)
 		return INVALID;
 	}
 	return INVALID;	
+}
+
+ScalarConverter::ScalarConverter() {}
+ScalarConverter::~ScalarConverter() {}
+
+ScalarConverter::ScalarConverter(const ScalarConverter& obj)
+{
+	if (this != &obj)
+		*this = obj;
+}
+
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter& obj)
+{
+	if (this != &obj)
+		*this = obj;
+	return *this;
 }
