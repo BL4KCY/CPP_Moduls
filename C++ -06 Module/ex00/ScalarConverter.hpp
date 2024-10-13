@@ -22,12 +22,12 @@ enum	ScalarType
 class ScalarConverter
 {
 private:
-	static	ScalarType	_getType(string& value);
-public:
 	ScalarConverter();
 	ScalarConverter(const ScalarConverter& obj);
 	ScalarConverter& operator=(const ScalarConverter& obj);
 	~ScalarConverter();
+public:
+	static	ScalarType	_getType(string& value);
 	static void	convert(string& value);
 };
 
