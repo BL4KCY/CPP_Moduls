@@ -27,7 +27,7 @@ Base* generate(void)
     }
 }
 
-void identify_from_pointer(Base* p)
+void identify(Base* p)
 {
     if (dynamic_cast<A*>(p))
     {
@@ -48,7 +48,8 @@ void identify_from_pointer(Base* p)
 int main(void)
 {
     Base* p = generate();
-    identify_from_pointer(p);
+    identify(p);
+    delete p;
     return 0;
 }
 
