@@ -1,28 +1,48 @@
 #include "Array.hpp"
 
-template <typename T>
+template <class T>
 void	printArray(Array<T> array)
 {
 	for (uint32_t i = 0; i < array.size(); i++)
 		cout << "array[" << i << "]: " <<  array[i] << endl;
 }
-
+ 
 
 
 int main( void )
 {
 	try
 	{
-		Array<string> stringArray(10);
-		Array<int> intArray(5);
+		// default constructor
+		Array<int> empty;
+		cout << empty.size() << endl;
+		// cout << empty[0] << endl; // should throw exception "comment it to check other tests"
 
-		stringArray[0] = "one";
-		stringArray[9] = "ten";
+		// param constructor
+		Array<int> intArray(23);
+		cout << intArray.size() << endl;
+		intArray[0] = 42;
+		cout << intArray[0] << endl;
+		// cout << intArray[23] << endl; // should throw exception "comment it to check other tests"
 
-		Array<string> stringArray2;// = stringArray;
-		stringArray2 = stringArray;
-		// printArray<string>(stringArray);
-		printArray<string>(stringArray2);
+		// copy constructor
+		Array<int> copy(intArray);
+		cout << copy.size() << endl;
+		cout << copy[0] << endl;
+
+		// assignment operator
+		Array<int> assign;
+		assign = intArray;
+		cout << assign.size() << endl;
+		cout << assign[0] << endl;
+	
+		// printArray
+		cout << "**printArray**" << endl;
+		printArray(intArray);
+		cout << "**printArray copy**" << endl;
+		printArray(copy);
+		cout << "**printArray assign**" << endl;
+		printArray(assign);
 	}
 	catch(const std::exception& e)
 	{

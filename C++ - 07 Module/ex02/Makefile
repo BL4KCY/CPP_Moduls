@@ -1,7 +1,7 @@
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 # -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 NAME = array
 
@@ -36,7 +36,7 @@ r:$(NAME)
 rleak:$(NAME)
 	clear
 	@echo "Running $(NAME)..."
-	@valgrind --track-origins=yes  ./$(NAME)
+	@valgrind ./$(NAME)
 rer: re r
 
 #___for the .SECONDARY rule, it is used to prevent the deletion of the intermediate files.

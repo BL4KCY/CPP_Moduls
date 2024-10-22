@@ -16,21 +16,21 @@ class Array
 	T*			array;
 	uint32_t	_size;
 public:
-	Array(){this->_size = 0; array = NULL; cout << "cleated!!!" << endl;}
+	Array(){this->_size = 0; array = NULL;}
 	~Array() {if (this->_size) delete[] array;}
 	Array(unsigned int n)
 	{
 		this->array = new T[n];
 		this->_size = n;
 	}
-	Array(Array& rhs)
+	Array(Array const &rhs)
 	{
 		if (rhs._size)
 		{
 			this->array = new T[rhs._size];
 			this->_size = rhs._size;
 			for (uint32_t i = 0; i < this->_size; i++)
-				(*this)[i] = rhs[i];
+				(*this)[i] = rhs.array[i];
 		}
 		else
 		{
@@ -40,7 +40,7 @@ public:
 			this->_size = 0;
 		}
 	}
-	Array&	operator = (Array& rhs)
+	Array&	operator = (Array const &rhs)
 	{
 		if (this->array != rhs.array)
 		{
@@ -54,7 +54,7 @@ public:
 				this->array = new T[rhs._size];
 				this->_size = rhs._size;
 				for (uint32_t i = 0; i < this->_size; i++)
-					(*this)[i] = rhs[i];
+					(*this)[i] = rhs.array[i];
 			}
 			else
 			{
