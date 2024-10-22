@@ -3,7 +3,7 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 # -g
 
-NAME = iter
+NAME = array
 
 SRCS = main.cpp
 
