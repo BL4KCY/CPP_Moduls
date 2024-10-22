@@ -32,6 +32,11 @@ r:$(NAME)
 	clear
 	@echo "Running $(NAME)..."
 	@./$(NAME)
+
+rleak:$(NAME)
+	clear
+	@echo "Running $(NAME)..."
+	@valgrind --track-origins=yes  ./$(NAME)
 rer: re r
 
 #___for the .SECONDARY rule, it is used to prevent the deletion of the intermediate files.

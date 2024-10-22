@@ -16,41 +16,33 @@ class Array
 	T*			array;
 	uint32_t	_size;
 public:
-	Array() {this->_size = 0; array = NULL;}
+	Array(){this->_size = 0; array = NULL; cout << "cleated!!!" << endl;}
 	~Array() {if (this->_size) delete[] array;}
 	Array(unsigned int n)
 	{
 		this->array = new T[n];
 		this->_size = n;
 	}
-	Array(const Array& rhs)
+	Array(Array& rhs)
 	{
-		if (*this != rhs)
+		if (rhs._size)
 		{
-			if (rhs._size)
-			{
-				if (this->_size)
-				{
-					delete[] this->array;
-					this->_size = 0;
-				}
-				this->array = new T[rhs._size];
-				this->_size = rhs._size;
-				for (uint32_t i = 0; i < this->_size; i++)
-					*this[i] = rhs[i];
-			}
-			else
-			{
-				if (this->_size)
-					delete[] this->array;
-				this->array = NULL;
-				this->_size = 0;
-			}
+			this->array = new T[rhs._size];
+			this->_size = rhs._size;
+			for (uint32_t i = 0; i < this->_size; i++)
+				(*this)[i] = rhs[i];
+		}
+		else
+		{
+			if (this->_size)
+				delete[] this->array;
+			this->array = NULL;
+			this->_size = 0;
 		}
 	}
-	Array&	operator = (const Array& rhs)
+	Array&	operator = (Array& rhs)
 	{
-		if (*this != rhs)
+		if (this->array != rhs.array)
 		{
 			if (rhs._size)
 			{
@@ -62,7 +54,7 @@ public:
 				this->array = new T[rhs._size];
 				this->_size = rhs._size;
 				for (uint32_t i = 0; i < this->_size; i++)
-					*this[i] = rhs[i];
+					(*this)[i] = rhs[i];
 			}
 			else
 			{
