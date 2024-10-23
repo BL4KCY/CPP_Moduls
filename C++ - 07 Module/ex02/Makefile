@@ -33,7 +33,7 @@ r:$(NAME)
 	@echo "Running $(NAME)..."
 	@./$(NAME)
 
-rleak:$(NAME)
+rleak:re
 	clear
 	@echo "Running $(NAME)..."
 	@valgrind ./$(NAME)

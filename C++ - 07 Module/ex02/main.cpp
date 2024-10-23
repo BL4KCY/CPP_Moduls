@@ -6,8 +6,13 @@ void	printArray(Array<T> array)
 	for (uint32_t i = 0; i < array.size(); i++)
 		cout << "array[" << i << "]: " <<  array[i] << endl;
 }
- 
 
+template <typename T>
+void	fillArray(Array<T> &array, T value)
+{
+	for (uint32_t i = 0; i < array.size(); i++)
+		array[i] = value;
+}
 
 int main( void )
 {
@@ -36,6 +41,9 @@ int main( void )
 		cout << assign.size() << endl;
 		cout << assign[0] << endl;
 	
+		fillArray(intArray, 42);
+		fillArray(copy, 13);
+		fillArray(assign, 1446);
 		// printArray
 		cout << "**printArray**" << endl;
 		printArray(intArray);
@@ -43,6 +51,8 @@ int main( void )
 		printArray(copy);
 		cout << "**printArray assign**" << endl;
 		printArray(assign);
+		assign = copy;
+
 	}
 	catch(const std::exception& e)
 	{

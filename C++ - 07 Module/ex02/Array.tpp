@@ -40,7 +40,7 @@ public:
 			this->_size = 0;
 		}
 	}
-	Array&	operator = (Array const &rhs)
+	Array&	operator = (const Array	&rhs)
 	{
 		if (this->array != rhs.array)
 		{
@@ -48,7 +48,7 @@ public:
 			{
 				if (this->_size)
 				{
-					delete this->array;
+					delete[] this->array;
 					this->_size = 0;
 				}
 				this->array = new T[rhs._size];
@@ -62,6 +62,8 @@ public:
 				this->_size = 0;
 			}
 		}
+		else
+			cout << "catched!!" << endl;
 		return (*this);
 	}
 	T&		operator [] (uint32_t index)
