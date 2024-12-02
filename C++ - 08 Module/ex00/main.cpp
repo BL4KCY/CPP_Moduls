@@ -5,9 +5,9 @@
 
 int main( void ) {
 
-	std::queue<int> vec;
+	std::list<int> vec;
 	for (int i  = 0; i < 10; i++){
-		vec.push(i);
+		vec.push_back(i);
 	}
 
 	try
