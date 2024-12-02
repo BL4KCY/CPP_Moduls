@@ -13,11 +13,11 @@ typedef	unsigned int	index;
 typedef	int				integer ;
 
 template <typename T>
-index	easyfind(T container, integer value)
+int	easyfind(T container, integer value)
 {
 	typename T::iterator it = std::find(container.begin(), container.end(), value);
 	if (it != container.end())
-		return  it - container.begin();
+		return  *it;
 	throw std::runtime_error("Not found!!");
 }
 
