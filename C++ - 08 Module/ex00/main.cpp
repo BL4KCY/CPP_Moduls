@@ -12,9 +12,13 @@ int main( void ) {
 
 	try
 	{
-		index indx = easyfind(vec, 6);
+		int value = easyfind(vec, 6);
 
-		std::cout << "The index :" << indx << std::endl;
+		std::cout << "The value :" << value << std::endl;
+
+		value = easyfind(vec, 53);
+
+		std::cout << "The value :" << value << std::endl;
 	}
 	catch(const std::exception& e)
 	{

@@ -9,11 +9,8 @@
 #include <algorithm>
 #include <iterator>
 
-typedef	unsigned int	index;
-typedef	int				integer ;
-
 template <typename T>
-int	easyfind(T container, integer value)
+int	easyfind(T container, int value)
 {
 	typename T::iterator it = std::find(container.begin(), container.end(), value);
 	if (it != container.end())
