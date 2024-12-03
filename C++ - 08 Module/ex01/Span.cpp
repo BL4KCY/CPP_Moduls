@@ -52,11 +52,11 @@ unsigned int	Span::shortestSpan( void ) const
 	if (intSet.size() < 2){
 		throw std::logic_error("Span: need 2 numbers or above !!");
 	}
-	std::vector<unsigned int>	diff(intSet.size() - 1);
+	std::vector<unsigned int>	diff(intSet.size());
 	std::vector<int>			sorted_list(intSet);
 	std::sort(sorted_list.begin(), sorted_list.end());
 	std::adjacent_difference(sorted_list.begin(), sorted_list.end(), diff.begin());
-	return (*std::min_element(diff.begin() , diff.end()));
+	return (*std::min_element(diff.begin() + 1, diff.end()));
 }
 
 unsigned int	Span::longestSpan( void ) const
