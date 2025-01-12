@@ -3,8 +3,9 @@
 
 
 
-int main( void ) {
+int main( int c, char **av ) {
 
-
+	if (c != 2)
+		cout << 
 	return 0;
 }
