@@ -8,6 +8,8 @@
 # include <fstream>
 # include <exception>
 # include <sstream>
+# include <utility>
+# include <cstdlib>
 
 using std::cout;
 using std::cin;
@@ -20,4 +22,5 @@ using std::ofstream;
 using std::map;
 using std::istringstream;
 
+# include "Date.hpp"
 #endif // BITCOINEXCHANGE_HPP
