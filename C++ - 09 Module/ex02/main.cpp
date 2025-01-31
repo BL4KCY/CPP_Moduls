@@ -1,15 +1,39 @@
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
+# include <cctype>
+# include <functional>
+# include <ctype.h>
 
-string	check_input(string input);
+template <typename T>
+void	print_pair(pair<T, T> pr)
+{
+	cout << "first: " << pr.first << ", second: " << pr.second << endl;
+}
 
 
 int main( int c, char **av ) {
-	string	input;
+	vector<pair<int, int> >	pairVec;
+	pair<int, int>			nbPiar;
+	string					arg;
+	
 	try {
-		if (c != 2) {
-			throw std::runtime_error("need 1 argement, try again !!");
+		for (int i = 1; i < c;i++)
+		{
+			if (string(av[i]).find_first_not_of("0123456789") != string::npos ){ //check if arg is positive number
+				throw std::logic_error(av[i] + string(" <- invalid number!!"));
+			}
+			if (i % 2) {
+				nbPiar.first = std::atol(av[i]);
+			} else {
+				nbPiar.second = std::atol(av[i]);
+				if (nbPiar.second < nbPiar.first)
+					std::swap(nbPiar.first, nbPiar.second);
+				pairVec.push_back(nbPiar);
+			}
 		}
-		input = check_input(av[1]);
+		if (!(c % 2)){
+			pairVec.push_back(pair<int, int>(std::atol(av[c - 1]), -1));
+		}
+		for_each(pairVec.begin(), pairVec.end(), print_pair<int>);
 	}
 	catch(const std::exception& e)
 	{
@@ -17,48 +41,4 @@ int main( int c, char **av ) {
 		return 1;
 	}
 	return 0;
-}
-
-string	check_input(string input)
-{
-	e_switch status = SPACE;
-	e_switch prev_status = NUMBER;
-	if (input.length() < 5){
-		throw std::runtime_error("invalid input, try again !!");
-	}
-	if (!std::isdigit(input.at(0)) && !std::isdigit(input.at(2)) && ' ' != input.at(1)){
-		throw std::runtime_error("invalid input, try again !!");
-	}
-	for (size_t i = 3; i < input.length();i++)
-	{
-		if (status == SPACE){
-			if (' ' != input.at(i)){
-				throw std::runtime_error("invalid input, try again !!");
-			}
-			status = (prev_status == NUMBER) ? OPERATOR : NUMBER;
-			prev_status = SPACE;
-		}
-		else if (status == NUMBER){
-			if (!std::isdigit(input.at(i))){
-				throw std::runtime_error("invalid input, try again !!");
-			}
-			status = SPACE;
-			prev_status = NUMBER;
-		}
-		else if (status == OPERATOR){
-				cout << "index: "<< i << " " << endl;
-			if (string::npos == string("+-*/").find(input.at(i))){
-				throw std::runtime_error("invalid input, try again !!");
-			}
-			if (input.at(i) == '/' && input.at(i - 2) == '0'){
-				throw std::runtime_error("invalid input, div by zero, try again !!");
-			}
-			status = SPACE;
-			prev_status = OPERATOR;
-		}
-	}
-	if (status != SPACE || OPERATOR != prev_status){
-		throw std::runtime_error("invalid input, try again !!");
-	}
-	return input;
 }
