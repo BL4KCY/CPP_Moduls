@@ -1,19 +1,9 @@
 #include "PmergeMe.hpp"
-# include <cctype>
-# include <functional>
-# include <ctype.h>
-
-template <typename T>
-void	print_pair(pair<T, T> pr)
-{
-	cout << "first: " << pr.first << ", second: " << pr.second << endl;
-}
-
+#include "mergeInsertSort.hpp"
 
 int main( int c, char **av ) {
-	vector<pair<int, int> >	pairVec;
-	pair<int, int>			nbPiar;
-	string					arg;
+	vector<int>	vec;
+	deque<int>	deq;
 	
 	try {
 		for (int i = 1; i < c;i++)
@@ -21,19 +11,20 @@ int main( int c, char **av ) {
 			if (string(av[i]).find_first_not_of("0123456789") != string::npos ){ //check if arg is positive number
 				throw std::logic_error(av[i] + string(" <- invalid number!!"));
 			}
-			if (i % 2) {
-				nbPiar.first = std::atol(av[i]);
-			} else {
-				nbPiar.second = std::atol(av[i]);
-				if (nbPiar.second < nbPiar.first)
-					std::swap(nbPiar.first, nbPiar.second);
-				pairVec.push_back(nbPiar);
-			}
+			vec.push_back(std::atol(av[i]));
+			deq.push_back(std::atol(av[i]));
 		}
-		if (!(c % 2)){
-			pairVec.push_back(pair<int, int>(std::atol(av[c - 1]), -1));
-		}
-		for_each(pairVec.begin(), pairVec.end(), print_pair<int>);
+		cout << "before: ";
+		for_each(vec.begin(), vec.end(), putnbr);
+		cout << endl;
+		mergeInsertSort<vector<int> > sortVec(vec);
+		mergeInsertSort<deque<int> > sortDeq(deq);
+		cout << "after :";
+		for_each(sortVec.getarr().begin(), sortVec.getarr().end(), putnbr);
+		cout << endl;
+		cout << std::fixed << std::setprecision(5);
+		cout << "Time to process a range of " << vec.size() << " elements with std::vector<int> : " << sortVec.timeTakes() << " seconds" << endl;
+		cout << "Time to process a range of " << deq.size() << " elements with std::deque<int> : " << sortDeq.timeTakes() << " seconds" << endl;
 	}
 	catch(const std::exception& e)
 	{
