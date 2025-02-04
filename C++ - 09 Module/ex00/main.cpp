@@ -110,7 +110,7 @@ void	init_database(map<string, float> &dataBase, ifstream &dataFile)
 	}
 	string	line;
 	while (std::getline(dataFile, line)) {
-		dataBase[(line.substr(0 ,line.find_first_of(',')))] = stof(line.substr(line.find_first_of(',') + 1));
+		dataBase[(line.substr(0 ,line.find_first_of(',')))] = ::stof(line.substr(line.find_first_of(',') + 1));
 	}
 }
 
