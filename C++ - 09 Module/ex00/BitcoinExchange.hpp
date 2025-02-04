@@ -23,4 +23,9 @@ using std::map;
 using std::istringstream;
 
 # include "Date.hpp"
+
+void	init_database(map<string, float> &dataBase, ifstream &dataFile);
+float	stof(string str);
+void	action(map<string, float> &dataBase, ifstream &inputFile);
+
 #endif // BITCOINEXCHANGE_HPP
