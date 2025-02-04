@@ -1,10 +1,5 @@
 #include "BitcoinExchange.hpp"
 
-
-void	init_database(map<string, float> &dataBase, ifstream &dataFile);
-float	stof(string str);
-void	action(map<string, float> &dataBase, ifstream &inputFile);
-
 int main( int c, char **av ) {
 	try {
 		if (2 != c)
