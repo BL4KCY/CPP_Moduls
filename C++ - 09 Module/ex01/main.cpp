@@ -38,34 +38,33 @@ int main( int c, char **av ) {
 	return 0;
 }
 
-
 void	calculateRPN(string input)
 {
 	string::iterator	end = std::remove(input.begin(), input.end(), ' ');
 	input.erase(end, input.end());
 	if (input.empty())
 		throw std::runtime_error("empty string !!");
-	vector<double>		stack;
+	stack<double>		stack;
 	string				operators = "+-*/";
 	string				result;
 
 	for (size_t i = 0; i < input.size(); i++) {
 		if (isdigit(input[i])) {
-			stack.push_back(input.at(i) - '0');
+			stack.push(input.at(i) - '0');
 		}
 		else if (operators.find(input[i]) != string::npos) {
 			if (stack.size() < 2)
 				throw std::runtime_error("not enough operands !!");
-			double	b = stack.back();
-			stack.pop_back();
-			double	a = stack.back();
-			stack.pop_back();
-			stack.push_back(do_op(a, b, input[i]));
+			double	b = stack.top();
+			stack.pop();
+			double	a = stack.top();
+			stack.pop();
+			stack.push(do_op(a, b, input[i]));
 		}
 		else
 			throw std::runtime_error("invalid character !!");
 	}
 	if (stack.size() != 1)
 		throw std::runtime_error("too many operands !!");
-	cout << stack.back() << endl;
+	cout << stack.top() << endl;
 }
